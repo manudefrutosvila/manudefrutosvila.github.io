@@ -1,0 +1,19 @@
+{
+  "name": "manudefrutosvila",
+  "description": "Manu de Frutos Vila github page",
+  "url": "http://manudefrutosvila.github.io",
+  "author": "Manu de Frutos Vila",
+  "copyright": "2015",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manudefrutosvila/manudefrutosvila.github.io"
+  },
+  "devDependencies": {
+    "http-server": "^0.6.1"
+  },
+  "scripts": {
+    "start": "http-server -a localhost -p 8000 -c-1"
+  }
+}
