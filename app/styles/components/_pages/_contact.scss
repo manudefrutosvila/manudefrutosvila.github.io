@@ -1,0 +1,26 @@
+/**
+*
+* Contact
+*
+**/
+
+.vcard {
+  dt {
+    display: block;
+    float: left;
+    clear: both;
+    width: 150px;
+  }
+  dd{
+    display: block;
+    float: left;
+    margin: 0;
+
+    i{
+      display: inline-block;
+      width: 1em;
+      text-align: center;
+      margin-right: .4em;
+    }
+  }
+}
