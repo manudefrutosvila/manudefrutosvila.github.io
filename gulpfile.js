@@ -50,6 +50,9 @@ gulp.task('jshint', function () {
 });
 
 // Optimize images
+gulp.task('clearCache', function (done) {
+  return $.cache.clearAll(done);
+});
 gulp.task('images', function () {
   return gulp.src('app/images/**/*')
     .pipe($.cache($.imagemin({
