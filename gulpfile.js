@@ -27,6 +27,8 @@ var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
 var pagespeed = require('psi');
 var reload = browserSync.reload;
+var shell = require('gulp-shell');
+var ghelp = require('gulp-showhelp');
 
 var AUTOPREFIXER_BROWSERS = [
   'ie >= 10',
@@ -47,7 +49,7 @@ gulp.task('jshint', function () {
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'))
     .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
-});
+}).help = 'Lint JavaScript';
 
 // Optimize images
 gulp.task('clearCache', function (done) {
@@ -161,7 +163,7 @@ gulp.task('serve', ['styles'], function () {
   gulp.watch(['app/styles/**/*.{scss,css}'], ['styles', reload]);
   gulp.watch(['app/scripts/**/*.js'], ['jshint']);
   gulp.watch(['app/images/**/*'], reload);
-});
+}).help = 'Watch files for changes & reload';
 
 // Build and serve the output from the dist build
 gulp.task('serve:dist', ['default'], function () {
@@ -174,12 +176,12 @@ gulp.task('serve:dist', ['default'], function () {
     // https: true,
     server: 'dist'
   });
-});
+}).help = 'Build and serve the output from the dist build';
 
 // Build production files, the default task
 gulp.task('default', ['clean'], function (cb) {
   runSequence('styles', ['jshint', 'html', 'images', 'fonts', 'copy'], cb);
-});
+}).help = 'Build production files';
 
 // Run PageSpeed Insights
 gulp.task('pagespeed', function (cb) {
@@ -190,14 +192,15 @@ gulp.task('pagespeed', function (cb) {
     // Use a Google Developer API key if you have one: http://goo.gl/RkN0vE
     // key: 'YOUR_API_KEY'
   }, cb);
-});
+}).help = 'Run PageSpeed Insights';
 
 // Load custom tasks from the `tasks` directory
 // try { require('require-dir')('tasks'); } catch (err) { console.error(err); }
 
-
-var shell = require('gulp-shell');
-
 gulp.task('deploy', shell.task([
   'sudo sh deploy.sh'
-]));
+])).help = 'Deploys the app directory into Github pages. It needs to build the production files first with `gulp`';
+
+gulp.task('help', function() {
+  ghelp.show();
+}).help = 'Shows this help message.';
