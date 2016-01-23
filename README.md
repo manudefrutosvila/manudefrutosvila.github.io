@@ -1,6 +1,10 @@
 # manudefrutosvila.github.io
 
+This is the source of Manu de Frutos Vila website ([manudefrutosvila.github.io](https://manudefrutosvila.github.io)). You can find it in the `\app` directory.
 
+Github pages deployment is under the [`master`](https://github.com/manudefrutosvila/manudefrutosvila.github.io/tree/dev) branch.
+
+The site is based upon the Google Web Starter Kit.
 
 # [![Web Starter Kit](https://cloud.githubusercontent.com/assets/170270/3343034/ceef6e92-f899-11e3-96b9-5d9d69d97a00.png)](https://github.com/google/web-starter-kit/releases/latest)
 
