@@ -194,3 +194,10 @@ gulp.task('pagespeed', function (cb) {
 
 // Load custom tasks from the `tasks` directory
 // try { require('require-dir')('tasks'); } catch (err) { console.error(err); }
+
+
+var shell = require('gulp-shell');
+
+gulp.task('deploy', shell.task([
+  'sudo sh deploy.sh'
+]));
